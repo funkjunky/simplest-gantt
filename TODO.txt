@@ -1,0 +1,43 @@
+TODO - Simplest Gantt (COMMIT OFTEN!)
+——
+
+ - Install things: react-d3
+ - get d3 bars showing
+ - get drag and drop working, moving bars
+ - add events into component state, based on unix timestamp
+ 	- add events component state (start, end, name, colour=random from list)
+	- add x axis with dates for days of week and days of month.
+	- show bars for events (made up data)
+- click and drag to create events
+	- event bar component, holds it’s own event state.
+	- click and drag for date, give it name “Sprint <auto-inc>”
+		and make the name focused and editable
+	- on-blur read-only name field, double-click to edit
+	- add text on page to inform user to”double click to edit name”
+	- when in edit-mode, show 2 row set of colours to left of bar
+		Leave some space, to drag event.start
+- click and drag to move events forward and back in time
+- click and drag edges to expand or shorten events
+- add snapping
+- click and drag to re-order on y
+- double click to rename
+
+- Responsive [larger window, means more time shown]
+- scope toggle (hourly, daily, weekly, monthly, yearly)
+- x and y sliders for zoom level
+
+- save as image
+- deploy to netlify through github hook
+
+- look into domain name for “simplest”
+- generate encoded id based on javascript timestamp+ip and add it to url
+- save on restdb.io and update url with id
+	- add save button
+	- try spamming and check for error
+- load from url id
+
+- every 60 seconds, check for changes, then auto-save if they exist.
+- figure out analytics with netlify? Or some other tool.
+- Button revealing textbox description of events [for easily sharing through email, etc. or chat.]
+- double duration and half duration buttons (for events)
+- ctrl and shift selecting events and allowing all drag and drop
