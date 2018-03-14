@@ -1,7 +1,7 @@
 TODO - Simplest Gantt (COMMIT OFTEN!)
 ——
 
- - Install things: react-d3
+ *- Install things: react-d3
  - get d3 bars showing
  - get drag and drop working, moving bars
  - add events into component state, based on unix timestamp
