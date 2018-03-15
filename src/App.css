@@ -13,6 +13,8 @@
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+svg {
+  width: 100%;
+  height: calc(100% - 50px);
+  border: solid 1px gray;
 }

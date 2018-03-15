@@ -2,7 +2,7 @@ TODO - Simplest Gantt (COMMIT OFTEN!)
 ——
 
  *- Install things: react-d3
- - get d3 bars showing
+ *- get SVG bars showing
  - get drag and drop working, moving bars
  - add events into component state, based on unix timestamp
  	- add events component state (start, end, name, colour=random from list)

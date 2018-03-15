@@ -24,17 +24,22 @@ let events = {
 };
 
 const startOfToday = moment().startOf('day').unix();
-const msPerHour = 1000 * 60 * 60;
-const pxPerMs = 10 / msPerHour;
+const sPerHour = 60 * 60;
 
-const unixToX = unixTimestamp => (unixTimestamp - startOfToday) * pxPerMs; //Every hour is 10 pixels
-const xToUnix = x => (x / pxPerMs) + startOfToday;
+//This dictates the scale
+const pxPerS = 1 / sPerHour;
+
+const unixToX = unixTimestamp => (unixTimestamp - startOfToday) * pxPerS; //Every hour is 10 pixels
+const xToUnix = x => (x / pxPerS) + startOfToday;
 
 function translateEvent(e) {
   let obj = {};
   if(e.start) obj.start = xToUnix(e.start);
   if(e.end) obj.end = xToUnix(e.end);
 }
+
+const barHeight = 20;
+const barMargin = 10;
 
 class App extends Component {
   state = events;
@@ -45,17 +50,19 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Simplest Gantt</h1>
         </header>
-        <p className="App-intro">
-          { Object.values(this.state).map(event =>
+        <svg>
+          { Object.values(this.state).map((event, i) =>
             <DraggableRect
               key={ event.id }
               start={ unixToX(event.start) }
               end={ unixToX(event.end) }
               onDrop={ e => this.setState({ [id]: { ...event, ...translateEvent(e) } }) }
+              y={ barHeight + i * (barHeight + barMargin * 2) }
+              height={ barHeight }
             >
             </DraggableRect>
           ) }
-        </p>
+        </svg>
       </div>
     );
   }
