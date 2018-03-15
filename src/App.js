@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import moment from 'moment';
 
 import DraggableRect from './DraggableRect';
@@ -7,22 +6,22 @@ import DraggableRect from './DraggableRect';
 import './App.css';
 
 let id = 0;
-let events = [
-    1: {
-        id: id,
+let events = {
+    [++id]: {
+        id,
         title: 'First Sprint',
         start: moment().startOf('week').add(1, 'week').unix(),
         end: moment().startOf('week').add(3, 'week').unix(),
         color: 'green',
     },
-    2: {
-        id: id,
+    [++id]: {
+        id,
         title: 'Second Sprint',
         start: moment().startOf('week').add(3, 'week').unix(),
         end: moment().startOf('week').add(5, 'week').unix(),
         color: 'blue',
     },
-];
+};
 
 const startOfToday = moment().startOf('day').unix();
 const msPerHour = 1000 * 60 * 60;
