@@ -5,16 +5,17 @@ TODO - Simplest Gantt (COMMIT OFTEN!)
  *- get SVG bars showing
  *- get drag and drop working, moving bars
  *- add mousemove event to document, but remove it on unmount
- - add expanding from each end, start and end
- - 100% width and height working
- - add events into component state, based on unix timestamp
- 	- add events component state (start, end, name, colour=random from list)
-	- add x axis with dates for days of week and days of month.
-	- show bars for events (made up data)
-- click and drag to create events
-	- event bar component, holds it’s own event state.
-	- click and drag for date, give it name “Sprint <auto-inc>”
-		and make the name focused and editable
+ *- add expanding from each end, start and end
+ *- 100% width and height working
+ *- add events into component state, based on unix timestamp
+ 	*- colour=random from list)
+ *- snapping on day
+ - click and drag to create events
+	*- event bar component, holds it’s own event state.
+	*- click and drag for date, give it name “Sprint <auto-inc>”
+	*- order all events
+
+	- make the name focused and editable
 	- on-blur read-only name field, double-click to edit
 	- add text on page to inform user to”double click to edit name”
 	- when in edit-mode, show 2 row set of colours to left of bar
@@ -28,6 +29,8 @@ TODO - Simplest Gantt (COMMIT OFTEN!)
 - Responsive [larger window, means more time shown]
 - scope toggle (hourly, daily, weekly, monthly, yearly)
 - x and y sliders for zoom level
+- textbox to edit styles for text [start with fill and font-size]
+	-What happens when we add a border? May need diff content-box
 
 - save as image
 - deploy to netlify through github hook

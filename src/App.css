@@ -1,3 +1,7 @@
+html {
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -15,6 +19,17 @@
 
 svg {
   width: 100%;
-  height: calc(100% - 50px);
+  height: calc(100vh - 90px);
   border: solid 1px gray;
+}
+
+line {
+  stroke-width: 2px;
+  stroke: black;
+}
+
+text {
+  pointer-events: none;
+  alignment-baseline: middle;
+  text-anchor: middle;
 }

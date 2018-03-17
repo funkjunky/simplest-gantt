@@ -19,7 +19,7 @@ class DraggableRect extends React.Component {
   };
   onMouseMove = e => {
     if(this.state.dragState) {
-      const deltaX = e.pageX - this.state.dragStart;
+      const deltaX = Math.round((e.pageX - this.state.dragStart) / this.props.snappingX) * this.props.snappingX;
       switch(this.state.dragState) {
         case 'move': this.setState({ deltaStart: deltaX, deltaEnd: deltaX }); break;
         case 'expandEnd': this.setState({ deltaEnd: deltaX }); break;
@@ -39,7 +39,7 @@ class DraggableRect extends React.Component {
   }
 
   render() {
-    const { start, end, onDrop, ...props } = this.props;
+    const { start, end, onDrop, snappingX, y, children, ...props } = this.props;
     const { deltaStart, deltaEnd } = this.state;
 
     const x = start + deltaStart;
@@ -48,20 +48,21 @@ class DraggableRect extends React.Component {
 
     const resizeWidth = 10;
 
-    return <g>
-      <rect { ...{ x, width: resizeWidth, onMouseDown: onMouseDown('expandStart'), ...props } } />
+    return <g transform={ `translate(${ x }, ${ y })` }>
+      <rect { ...{ width: resizeWidth, onMouseDown: onMouseDown('expandStart'), ...props } } />
       <rect { ...{
-        x: x + resizeWidth,
+        x: resizeWidth,
         width: width - resizeWidth * 2,
         onMouseDown: onMouseDown('move'),
         ...props
       } } />
       <rect { ...{
-        x: x + width - resizeWidth,
+        x: width - resizeWidth,
         width: resizeWidth,
         onMouseDown: onMouseDown('expandEnd'),
         ...props
       } } />
+      { children }
     </g>
   }
 }
