@@ -36,6 +36,7 @@ function translateEvent(e) {
   let obj = {};
   if(e.start) obj.start = xToUnix(e.start);
   if(e.end) obj.end = xToUnix(e.end);
+  return obj;
 }
 
 const barHeight = 20;
@@ -56,7 +57,7 @@ class App extends Component {
               key={ event.id }
               start={ unixToX(event.start) }
               end={ unixToX(event.end) }
-              onDrop={ e => this.setState({ [id]: { ...event, ...translateEvent(e) } }) }
+              onDrop={ e => this.setState({ [event.id]: { ...event, ...translateEvent(e) } }) }
               y={ barHeight + i * (barHeight + barMargin * 2) }
               height={ barHeight }
             >

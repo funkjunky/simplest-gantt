@@ -3,7 +3,10 @@ TODO - Simplest Gantt (COMMIT OFTEN!)
 
  *- Install things: react-d3
  *- get SVG bars showing
- - get drag and drop working, moving bars
+ *- get drag and drop working, moving bars
+ *- add mousemove event to document, but remove it on unmount
+ - add expanding from each end, start and end
+ - 100% width and height working
  - add events into component state, based on unix timestamp
  	- add events component state (start, end, name, colour=random from list)
 	- add x axis with dates for days of week and days of month.
