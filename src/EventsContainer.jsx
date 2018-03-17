@@ -65,7 +65,7 @@ class EventsContainer extends React.Component {
 
   render() {
     const { start, end, color, title, isDragging, dragY } = this.state;
-    const y = dragY - 100 - 90;
+    const y = dragY - 100 - 90 - 40;
 
     //TODO: transform should be passed down.
     return <g transform="translate(0, 100)">

@@ -19,6 +19,7 @@ class DraggableRect extends React.Component {
   };
   onMouseMove = e => {
     if(this.state.dragState) {
+      console.log('stuff: ', e.pageX, this.state.dragStart, this.props.snappingX);
       const deltaX = Math.round((e.pageX - this.state.dragStart) / this.props.snappingX) * this.props.snappingX;
       switch(this.state.dragState) {
         case 'move': this.setState({ deltaStart: deltaX, deltaEnd: deltaX }); break;

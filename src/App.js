@@ -80,7 +80,7 @@ class App extends Component {
 
   render() {
     const snappingX = +moment.duration(1, 'day') * pxPerMs;
-    const snappingY = barHeight + barPadding;
+    const snappingY = barHeight + barPadding * 2;
     return (
       <div className="App">
         <header className="App-header">
@@ -100,7 +100,7 @@ class App extends Component {
                 y={ barHeight + i * (barHeight + barMargin * 2) }
                 height={ barHeight }
                 fill={ backgroundColor(event.color) }
-                snappingX={ this.snappingX }
+                snappingX={ snappingX }
               >
                 <text { ...{
                   x: (unixToX(event.end) - unixToX(event.start)) / 2,
